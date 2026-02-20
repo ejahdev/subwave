@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subwave - Music Player with Visualizer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+        }
+        
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .tagline {
+            font-size: 1.3em;
+            opacity: 0.95;
+        }
+        
+        .content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 20px 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .feature {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .feature h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .cta {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .button:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+            opacity: 0.9;
+        }
+        
+        footer a {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .screenshot {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎵 Subwave</h1>
+            <p class="tagline">Stream music with stunning visualizations</p>
+        </header>
+        
+        <div class="content">
+            <h2>About Subwave</h2>
+            <p>Subwave brings your Subsonic music library to life with professional-grade audio visualizations powered by ProjectM/MilkDrop.</p>
+            
+            <div class="features">
+                <div class="feature">
+                    <h3>🎶 Stream Your Music</h3>
+                    <p>Connect to any Subsonic-compatible server and access your entire music library.</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>✨ Stunning Visualizations</h3>
+                    <p>Real-time audio-reactive visualizations with 30+ MilkDrop presets.</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>📱 Modern Interface</h3>
+                    <p>Beautiful Material Design 3 interface with dark theme support.</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>🎵 Full Control</h3>
+                    <p>Playlist management, shuffle, repeat, and recently played tracking.</p>
+                </div>
+            </div>
+            
+            <div class="cta">
+                <a href="#" class="button">Download on Google Play</a>
+                <p style="margin-top: 20px; color: #666;">Coming soon to Google Play Store</p>
+            </div>
+            
+            <h2 style="margin-top: 40px;">Requirements</h2>
+            <ul style="margin: 20px 0; padding-left: 20px;">
+                <li>Android 8.0 or higher</li>
+                <li>Subsonic or compatible server (Navidrome, Airsonic, etc.)</li>
+            </ul>
+        </div>
+        
+        <footer>
+            <p>
+                <a href="privacy.html">Privacy Policy</a> | 
+                <a href="mailto:your-email@example.com">Contact</a>
+            </p>
+            <p style="margin-top: 10px;">© 2026 Subwave. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
