@@ -1,224 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subwave - Music Player with Visualizer</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            color: white;
-        }
-        
-        h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        h2 {
-            color: #667eea;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-        }
-        
-        .tagline {
-            font-size: 1.3em;
-            opacity: 0.95;
-        }
-        
-        .content {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            margin: 20px 0;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-        }
-        
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-        
-        .feature {
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-        }
-        
-        .feature h3 {
-            color: #667eea;
-            margin-bottom: 10px;
-        }
-        
-        .cta {
-            text-align: center;
-            margin: 40px 0;
-        }
-        
-        .button {
-            display: inline-block;
-            padding: 15px 40px;
-            background: #667eea;
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-size: 1.1em;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-        }
-        
-        .button:hover {
-            background: #5568d3;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-        }
-        
-        ul {
-            margin: 20px 0;
-            padding-left: 20px;
-        }
-        
-        li {
-            margin-bottom: 10px;
-        }
-        
-        a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        a:hover {
-            text-decoration: underline;
-        }
-        
-        .content p {
-            margin-bottom: 15px;
-        }
-        
-        .license-note {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-            margin: 20px 0;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: white;
-            opacity: 0.9;
-        }
-        
-        footer a {
-            color: white;
-            text-decoration: underline;
-        }
-        
-        .screenshot {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            margin: 20px 0;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>🎵 Subwave</h1>
-            <p class="tagline">Stream music with stunning visualizations</p>
-        </header>
-        
-        <div class="content">
-            <h2 style="margin-top: 0;">About Subwave</h2>
-            <p>Subwave brings your Subsonic music library to life with professional-grade audio visualizations powered by ProjectM/MilkDrop.</p>
-            
-            <div class="features">
-                <div class="feature">
-                    <h3>🎶 Stream Your Music</h3>
-                    <p>Connect to any Subsonic-compatible server and access your entire music library.</p>
-                </div>
-                
-                <div class="feature">
-                    <h3>✨ Stunning Visualizations</h3>
-                    <p>Real-time audio-reactive visualizations with 30+ MilkDrop presets.</p>
-                </div>
-                
-                <div class="feature">
-                    <h3>📱 Modern Interface</h3>
-                    <p>Beautiful Material Design 3 interface with dark theme support.</p>
-                </div>
-                
-                <div class="feature">
-                    <h3>🎵 Full Control</h3>
-                    <p>Playlist management, shuffle, repeat, and recently played tracking.</p>
-                </div>
-            </div>
-            
-            <div class="cta">
-                <a href="#" class="button">Download on Google Play</a>
-                <p style="margin-top: 20px; color: #666;">Coming soon to Google Play Store</p>
-            </div>
-            
-            <h2>Requirements</h2>
-            <ul>
-                <li>Android 8.0 or higher</li>
-                <li>Subsonic or compatible server (Navidrome, Airsonic, etc.)</li>
-            </ul>
-            
-            <h2>Open Source</h2>
-            <p>Subwave uses the following open source libraries:</p>
-            <ul>
-                <li><strong>ProjectM</strong> - Licensed under LGPL v2.1 
-                    <a href="https://github.com/projectM-visualizer/projectm" target="_blank">Source Code</a>
-                </li>
-                <li><strong>ExoPlayer</strong> - Licensed under Apache 2.0</li>
-                <li><strong>Retrofit</strong> - Licensed under Apache 2.0</li>
-                <li><strong>Coil</strong> - Licensed under Apache 2.0</li>
-            </ul>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Subwave – Android Subsonic Client</title>
 
-            <div class="license-note">
-                <strong>ProjectM Source Code Availability:</strong> The complete source code for ProjectM 
-                is available at <a href="https://github.com/projectM-visualizer/projectm" target="_blank">github.com/projectM-visualizer/projectm</a>. 
-                You may modify and rebuild the library according to the terms of the LGPL v2.1 license.
-            </div>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f1f3f4;
+    color: #202124;
+    line-height: 1.6;
+}
+
+/* ---------- NAVBAR ---------- */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    z-index: 100;
+}
+
+.nav-inner {
+    max-width: 1100px;
+    margin: auto;
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.nav-inner a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #5f6368;
+    font-weight: 500;
+}
+
+.nav-inner a:hover {
+    color: #1a73e8;
+}
+
+/* ---------- HERO ---------- */
+
+.hero {
+    background: radial-gradient(circle at 50% 0%, #e8f0fe 0%, #f1f3f4 70%);
+    padding: 120px 20px 100px;
+    text-align: center;
+}
+
+.hero-container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.logo-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.logo {
+    height: 64px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.hero-headline {
+    font-size: 1.5rem;
+    margin-top: 28px;
+    font-weight: 500;
+    color: #3c4043;
+}
+
+.tagline {
+    margin-top: 12px;
+    font-size: 1.05rem;
+    color: #5f6368;
+}
+
+/* Screenshots */
+
+.hero-screenshots {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    position: relative;
+}
+
+.hero-screenshots img {
+    width: 280px;
+    border-radius: 28px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1; /* base */
+}
+
+.hero-screenshots img:hover {
+    transform: translateY(-6px) scale(1.03);
+    z-index: 10; /* always bring hovered image to front */
+}
+
+/* Left screenshot */
+.hero-screenshots img:nth-child(1) {
+    transform: translateX(40px) rotate(-3deg);
+    z-index: 2;
+}
+
+/* Center screenshot */
+.hero-screenshots img:nth-child(2) {
+    z-index: 3;
+}
+
+/* Right screenshot */
+.hero-screenshots img:nth-child(3) {
+    transform: translateX(-40px) rotate(3deg);
+    z-index: 2;
+}
+
+/* ---------- FEATURES ---------- */
+
+.section {
+    padding: 100px 20px;
+    background: #ffffff;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.section-intro {
+    color: #5f6368;
+    max-width: 700px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.feature {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 24px;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(0,0,0,0.04);
+}
+
+.feature:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.feature h3 {
+    margin-bottom: 10px;
+}
+
+/* ---------- CTA ---------- */
+
+.cta {
+    margin-top: 70px;
+    text-align: center;
+}
+
+.play-button {
+    display: inline-block;
+    padding: 16px 44px;
+    background: #1a73e8;
+    color: white;
+    font-weight: 600;
+    border-radius: 40px;
+    text-decoration: none;
+    font-size: 1.05rem;
+    transition: all 0.25s ease;
+    box-shadow: 0 8px 25px rgba(26,115,232,0.35);
+}
+
+.play-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(26,115,232,0.45);
+}
+
+.coming-soon {
+    margin-top: 18px;
+    font-size: 0.95rem;
+    color: #5f6368;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer {
+    background: #202124;
+    color: #bdc1c6;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 768px) {
+    .hero-screenshots {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-screenshots img {
+        width: 260px;
+        transform: none !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="nav-inner">
+        <span class="nav-logo">Subwave</span>
+        <div>
+            <a href="#features">Features</a>
+            <a href="privacy.html">Privacy</a>
         </div>
-        
-        <footer>
-            <p>
-                <a href="privacy.html">Privacy Policy</a> | 
-                <a href="mailto:your-email@example.com">Contact</a>
-            </p>
-            <p style="margin-top: 10px;">© 2026 Subwave. All rights reserved.</p>
-        </footer>
     </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-container">
+
+        <h1 class="logo-title">
+            <img src="assets/subwave logo background.png" alt="Subwave Logo" class="logo">
+            Subwave
+        </h1>
+
+        <p class="hero-headline">A Modern Subsonic Client for Android</p>
+        <p class="tagline">
+            Stream your music library with stunning real-time visualizations.
+        </p>
+
+        <div class="hero-screenshots">
+            <img src="assets/screen2.jpg" alt="Library Screen">
+            <img src="assets/screen1.jpg" alt="Now Playing Screen">
+            <img src="assets/screen3.jpg" alt="Visualization Screen">
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="features">
+<div class="container">
+
+    <h2>Built for Your Music Server</h2>
+    <p class="section-intro">
+        Subwave connects to Subsonic and compatible servers, delivering smooth streaming,
+        powerful playback control, and immersive real-time visualizations.
+    </p>
+
+    <div class="features">
+
+        <div class="feature">
+            <h3>🎶 Stream Everything</h3>
+            <p>Access your full library from Subsonic, Navidrome, Airsonic, and more.</p>
+        </div>
+
+        <div class="feature">
+            <h3>✨ Real-Time Visualizations</h3>
+            <p>MilkDrop-powered visual effects rendered smoothly on Android.</p>
+        </div>
+
+        <div class="feature">
+            <h3>📱 Material Design 3</h3>
+            <p>Dynamic color themes that adapt to your Android device.</p>
+        </div>
+
+        <div class="feature">
+            <h3>🎵 Full Playback Control</h3>
+            <p>Queue management, shuffle, repeat, and recently played tracking.</p>
+        </div>
+
+    </div>
+
+    <div class="cta">
+        <a href="#" class="play-button">Get it on Google Play</a>
+        <div class="coming-soon">Coming soon to Google Play</div>
+    </div>
+
+</div>
+</section>
+
+<footer>
+    <p>
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="mailto:your-email@example.com">Contact</a>
+    </p>
+    <p style="margin-top:10px;">© 2026 Subwave. All rights reserved.</p>
+</footer>
+
 </body>
 </html>
