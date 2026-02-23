@@ -1,337 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<title>Subwave – Android Subsonic Client</title>
-
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    background: #f1f3f4;
-    color: #202124;
-    line-height: 1.6;
-}
-
-/* ---------- NAVBAR ---------- */
-
-.navbar {
-    position: sticky;
-    top: 0;
-    background: rgba(255,255,255,0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    z-index: 100;
-}
-
-.nav-inner {
-    max-width: 1100px;
-    margin: auto;
-    padding: 18px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-logo {
-    font-weight: 600;
-    font-size: 1.1rem;
-}
-
-.nav-inner a {
-    margin-left: 25px;
-    text-decoration: none;
-    color: #5f6368;
-    font-weight: 500;
-}
-
-.nav-inner a:hover {
-    color: #1a73e8;
-}
-
-/* ---------- HERO ---------- */
-
-.hero {
-    background: radial-gradient(circle at 50% 0%, #e8f0fe 0%, #f1f3f4 70%);
-    padding: 120px 20px 100px;
-    text-align: center;
-}
-
-.hero-container {
-    max-width: 1100px;
-    margin: auto;
-}
-
-.logo-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    font-size: 3rem;
-    font-weight: 700;
-    letter-spacing: -1px;
-}
-
-.logo {
-    height: 64px;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
-
-.hero-headline {
-    font-size: 1.5rem;
-    margin-top: 28px;
-    font-weight: 500;
-    color: #3c4043;
-}
-
-.tagline {
-    margin-top: 12px;
-    font-size: 1.05rem;
-    color: #5f6368;
-}
-
-/* Screenshots */
-
-.hero-screenshots {
-    margin-top: 80px;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    position: relative;
-}
-
-.hero-screenshots img {
-    width: 280px;
-    border-radius: 28px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    position: relative;
-    z-index: 1; /* base */
-}
-
-.hero-screenshots img:hover {
-    transform: translateY(-6px) scale(1.03);
-    z-index: 10; /* always bring hovered image to front */
-}
-
-/* Left screenshot */
-.hero-screenshots img:nth-child(1) {
-    transform: translateX(40px) rotate(-3deg);
-    z-index: 2;
-}
-
-/* Center screenshot */
-.hero-screenshots img:nth-child(2) {
-    z-index: 3;
-}
-
-/* Right screenshot */
-.hero-screenshots img:nth-child(3) {
-    transform: translateX(-40px) rotate(3deg);
-    z-index: 2;
-}
-
-/* ---------- FEATURES ---------- */
-
-.section {
-    padding: 100px 20px;
-    background: #ffffff;
-}
-
-.container {
-    max-width: 1100px;
-    margin: auto;
-}
-
-.section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.section-intro {
-    color: #5f6368;
-    max-width: 700px;
-}
-
-.features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 40px;
-    margin-top: 50px;
-}
-
-.feature {
-    background: #f8f9fa;
-    padding: 30px;
-    border-radius: 24px;
-    transition: all 0.2s ease;
-    border: 1px solid rgba(0,0,0,0.04);
-}
-
-.feature:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-}
-
-.feature h3 {
-    margin-bottom: 10px;
-}
-
-/* ---------- CTA ---------- */
-
-.cta {
-    margin-top: 70px;
-    text-align: center;
-}
-
-.play-button {
-    display: inline-block;
-    padding: 16px 44px;
-    background: #1a73e8;
-    color: white;
-    font-weight: 600;
-    border-radius: 40px;
-    text-decoration: none;
-    font-size: 1.05rem;
-    transition: all 0.25s ease;
-    box-shadow: 0 8px 25px rgba(26,115,232,0.35);
-}
-
-.play-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(26,115,232,0.45);
-}
-
-.coming-soon {
-    margin-top: 18px;
-    font-size: 0.95rem;
-    color: #5f6368;
-}
-
-/* ---------- FOOTER ---------- */
-
-footer {
-    background: #202124;
-    color: #bdc1c6;
-    padding: 60px 20px;
-    text-align: center;
-}
-
-footer a {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-/* ---------- RESPONSIVE ---------- */
-
-@media (max-width: 768px) {
-    .hero-screenshots {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .hero-screenshots img {
-        width: 260px;
-        transform: none !important;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Subwave</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        ul {
+            margin: 15px 0 15px 30px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .last-updated {
+            color: #666;
+            font-style: italic;
+            margin-top: 30px;
+        }
+    </style>
 </head>
-
 <body>
-
-<nav class="navbar">
-    <div class="nav-inner">
-        <span class="nav-logo">Subwave</span>
-        <div>
-            <a href="#features">Features</a>
-            <a href="privacy.html">Privacy</a>
+    <header>
+        <h1>Privacy Policy</h1>
+        <p>Last updated: February 19, 2026</p>
+    </header>
+    
+    <div class="container">
+        <div class="content">
+            <h2>Introduction</h2>
+            <p>Subwave ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we handle your information when you use our mobile application.</p>
+            
+            <h2>Information We Collect</h2>
+            <p>Subwave collects and stores the following information <strong>locally on your device only</strong>:</p>
+            <ul>
+                <li><strong>Server Credentials:</strong> Your Subsonic server URL, username, and password are stored locally on your device to enable connection to your music server.</li>
+                <li><strong>Recently Played History:</strong> A list of songs you've recently played is stored locally to enhance your experience.</li>
+                <li><strong>Playback Position:</strong> The last playback position of songs is saved locally to resume where you left off.</li>
+                <li><strong>Playlist Data:</strong> Any playlists you create are stored locally and on your Subsonic server.</li>
+            </ul>
+            
+            <h2>Audio Recording Permission</h2>
+            <p>Subwave requests permission to record audio (<code>RECORD_AUDIO</code>) for the following purpose:</p>
+            <ul>
+                <li><strong>Real-time Visualization Only:</strong> This permission is used exclusively to analyze audio output in real-time for the visualizer feature.</li>
+                <li><strong>No Recording:</strong> Audio is never recorded, saved, or transmitted. It is only processed in memory for visualization purposes.</li>
+                <li><strong>Local Processing:</strong> All audio analysis happens locally on your device.</li>
+            </ul>
+            
+            <h2>Notification Permission</h2>
+            <p>On Android 13 and above, Subwave requests notification permission to display playback controls and now-playing information in your device's notification area.</p>
+            
+            <h2>Data Storage</h2>
+            <p>All data collected by Subwave is stored <strong>locally on your device</strong>:</p>
+            <ul>
+                <li>We do not operate any servers or cloud services</li>
+                <li>We do not transmit your data to any third parties</li>
+                <li>Your credentials and data are only sent to YOUR Subsonic server that you configure</li>
+                <li>All data is deleted when you uninstall the app</li>
+            </ul>
+            
+            <h2>Third-Party Services</h2>
+            <p>Subwave connects to your self-hosted or third-party Subsonic server:</p>
+            <ul>
+                <li>You control which server the app connects to</li>
+                <li>The app communicates only with the server you specify</li>
+                <li>We do not have access to your server credentials or data</li>
+                <li>Your server's privacy policy applies to data stored there</li>
+            </ul>
+            
+            <h2>Analytics and Tracking</h2>
+            <p><strong>We do not use any analytics, tracking, or advertising services.</strong></p>
+            <ul>
+                <li>No usage data is collected</li>
+                <li>No crash reports are sent (unless you manually report via email)</li>
+                <li>No advertising or marketing tracking</li>
+            </ul>
+            
+            <h2>Data Security</h2>
+            <p>We take reasonable measures to protect your data:</p>
+            <ul>
+                <li>All data is stored using Android's secure local storage</li>
+                <li>Connections to your Subsonic server use HTTPS when available</li>
+                <li>Credentials are stored using Android's secure SharedPreferences</li>
+            </ul>
+            
+            <h2>Your Rights</h2>
+            <p>You have full control over your data:</p>
+            <ul>
+                <li><strong>Access:</strong> All your data is on your device and accessible through the app</li>
+                <li><strong>Deletion:</strong> Disconnect from server in Settings to clear credentials, or uninstall the app to delete all data</li>
+                <li><strong>Portability:</strong> Your music and playlists remain on your Subsonic server</li>
+            </ul>
+            
+            <h2>Children's Privacy</h2>
+            <p>Subwave does not collect any personal information from anyone, including children under 13. The app requires a user-provided Subsonic server, which should be managed by adults.</p>
+            
+            <h2>Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.</p>
+            
+            <h2>Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy, please contact us:</p>
+            <ul>
+                <li>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></li>
+                <li>GitHub: <a href="https://github.com/yourusername/subwave" target="_blank">github.com/yourusername/subwave</a></li>
+            </ul>
+            
+            <p class="last-updated">This privacy policy was last updated on February 19, 2026.</p>
+            
+            <a href="index.html" class="back-link">← Back to Home</a>
         </div>
     </div>
-</nav>
-
-<section class="hero">
-    <div class="hero-container">
-
-        <h1 class="logo-title">
-            <img src="assets/subwave logo background.png" alt="Subwave Logo" class="logo">
-            Subwave
-        </h1>
-
-        <p class="hero-headline">A Modern Subsonic Client for Android</p>
-        <p class="tagline">
-            Stream your music library with stunning real-time visualizations.
-        </p>
-
-        <div class="hero-screenshots">
-            <img src="assets/screen2.jpg" alt="Library Screen">
-            <img src="assets/screen1.jpg" alt="Now Playing Screen">
-            <img src="assets/screen3.jpg" alt="Visualization Screen">
-        </div>
-
-    </div>
-</section>
-
-<section class="section" id="features">
-<div class="container">
-
-    <h2>Built for Your Music Server</h2>
-    <p class="section-intro">
-        Subwave connects to Subsonic and compatible servers, delivering smooth streaming,
-        powerful playback control, and immersive real-time visualizations.
-    </p>
-
-    <div class="features">
-
-        <div class="feature">
-            <h3>🎶 Stream Everything</h3>
-            <p>Access your full library from Subsonic, Navidrome, Airsonic, and more.</p>
-        </div>
-
-        <div class="feature">
-            <h3>✨ Real-Time Visualizations</h3>
-            <p>MilkDrop-powered visual effects rendered smoothly on Android.</p>
-        </div>
-
-        <div class="feature">
-            <h3>📱 Material Design 3</h3>
-            <p>Dynamic color themes that adapt to your Android device.</p>
-        </div>
-
-        <div class="feature">
-            <h3>🎵 Full Playback Control</h3>
-            <p>Queue management, shuffle, repeat, and recently played tracking.</p>
-        </div>
-
-    </div>
-
-    <div class="cta">
-        <a href="#" class="play-button">Get it on Google Play</a>
-        <div class="coming-soon">Coming soon to Google Play</div>
-    </div>
-
-</div>
-</section>
-
-<footer>
-    <p>
-        <a href="privacy.html">Privacy Policy</a> |
-        <a href="mailto:your-email@example.com">Contact</a>
-    </p>
-    <p style="margin-top:10px;">© 2026 Subwave. All rights reserved.</p>
-</footer>
-
 </body>
 </html>
